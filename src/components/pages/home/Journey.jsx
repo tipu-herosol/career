@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Slider from "react-slick";
 
 const Journey = ({ data }) => {
-	const [journey, setJourney] = useState();
-	const [journeyThumbs, setJourneyThumbs] = useState();
+	const [slider, setSlider] = useState();
+	const [thumbs, setThumbs] = useState();
 	const settings = {
-		// dots: true,
+		arrows: false,
 		infinite: true,
 		vertical: true,
 		verticalSwiping: true,
@@ -15,7 +15,7 @@ const Journey = ({ data }) => {
 		slidesToScroll: 1,
 	};
 	const settings_thumb = {
-		// dots: true,
+		arrows: false,
 		infinite: true,
 		fade: true,
 		draggable: false,
@@ -32,9 +32,9 @@ const Journey = ({ data }) => {
 						<h2 className="heading">{data.heading}</h2>
 					</div>
 					<div className="flex_row main_row row">
-						<div className="col col-md-6 pe-md-5">
+						<div className="col col-lg-6 pe-lg-5">
 							<div id="slick-journey">
-								<Slider {...settings} asNavFor={journeyThumbs} ref={(slider1) => setJourney(slider1)}>
+								<Slider {...settings} asNavFor={thumbs} ref={(slider1) => setSlider(slider1)}>
 									{data.slider.map((val) => {
 										return (
 											<div className="item" key={val.id}>
@@ -48,9 +48,9 @@ const Journey = ({ data }) => {
 								</Slider>
 							</div>
 						</div>
-						<div className="col col-md-6 ps-md-5">
+						<div className="col col-lg-6 ps-lg-5">
 							<div id="slick-journey-thumbs">
-								<Slider {...settings_thumb} asNavFor={journey} ref={(slider2) => setJourneyThumbs(slider2)}>
+								<Slider {...settings_thumb} asNavFor={slider} ref={(slider2) => setThumbs(slider2)}>
 									{data.thumbs.map((val) => {
 										return (
 											<div className="item" key={val.id}>

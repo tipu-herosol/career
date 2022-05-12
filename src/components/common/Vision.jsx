@@ -9,10 +9,10 @@ const Vision = ({ data }) => {
 						<h6 className="tag">{data.tag}</h6>
 						<h2>{data.heading}</h2>
 					</div>
-					<div className="flex_row main_row">
+					<div className="flex_row main_row row center">
 						{data.block.map((val) => {
 							return (
-								<div className="col" key={val.id}>
+								<div className="col col-lg-3 col-md-6" key={val.id}>
 									<div className="vision_blk">
 										<div className="ico">
 											<img src={val.src} alt={val.alt} />

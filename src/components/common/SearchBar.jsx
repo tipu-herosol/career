@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Data from "../dummy";
 
 const SearchBar = () => {
-	const { icon, icon_alt, btn } = Data.srch_bar;
+	const { icon, icon_alt, btn, flag, flag_alt } = Data.srch_bar;
 	const [formVal, setFormVal] = useState({
 		search: "",
 	});
@@ -15,15 +15,16 @@ const SearchBar = () => {
 		<>
 			<form action="" method="POST" onSubmit={inputHandle} id="srch_bar">
 				<div className="inside input">
+					<div className="flag_blk d-inline-flex align-items-center">
+						UK <img src={flag} alt={flag_alt} />
+					</div>
 					<div className="form_blk">
 						<img src={icon} alt={icon_alt} />
-						<input type="text" name="search" id="search" value={formVal.search} onChange={inputHandle} className="input" placeholder="Job, Company, Location" />
+						<input type="text" name="search" id="search" value={formVal.search} onChange={inputHandle} className="input" placeholder="Job, Company, Location" autoComplete="off" />
 					</div>
-					<div className="btn_blk">
-						<button type="submit" className="site_btn">
-							{btn}
-						</button>
-					</div>
+					<button type="submit" className="site_btn">
+						{btn}
+					</button>
 				</div>
 			</form>
 		</>

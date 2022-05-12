@@ -1,10 +1,10 @@
 import React from "react";
 
-const JobFilter = () => {
+const JobFilter = ({ active, close }) => {
 	return (
 		<>
-			<div id="filter" className="blk">
-				<button type="button" className="x_btn"></button>
+			<div id="filter" className={active ? "blk active" : "blk"}>
+				<button type="button" className="x_btn" onClick={close}></button>
 				<div className="top_head mb-0">
 					<h4 className="mb-0 text-uppercase">Filter Jobs</h4>
 				</div>

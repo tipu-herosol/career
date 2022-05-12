@@ -1,6 +1,6 @@
 import React from "react";
 
-const TopBar = ({ data, firstStepDone, secondStepDone, thirdStepDone }) => {
+const TopBar = ({ data }) => {
 	return (
 		<>
 			<ul className="top_bar">

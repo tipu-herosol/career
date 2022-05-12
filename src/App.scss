@@ -171,7 +171,7 @@ $cross_circle: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www
 }
 
 @mixin slider($p: null) {
-	@include flex(initial, initial, nowrap);
+	@include flex(initial, space-between, nowrap);
 	padding: $p;
 	overflow: hidden;
 	overflow-x: auto;

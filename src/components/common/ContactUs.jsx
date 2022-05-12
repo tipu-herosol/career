@@ -6,8 +6,8 @@ const ContactUs = ({ data }) => {
 		<>
 			<section id="contact">
 				<div className="contain">
-					<div className="flex_row main_row">
-						<div className="col col1">
+					<div className="flex_row main_row row">
+						<div className="col col-lg-6">
 							<div className="txt">
 								<h6 className="tag">{data.tag}</h6>
 								<h2>{data.heading}</h2>
@@ -24,7 +24,7 @@ const ContactUs = ({ data }) => {
 								</ul>
 							</div>
 						</div>
-						<div className="col col2">
+						<div className="col col-lg-6">
 							<div className="in_col">
 								<ContactForm formData={data.form} />
 							</div>

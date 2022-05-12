@@ -1,7 +1,7 @@
 import React from "react";
 import IntroRowBlk from "./IntroRowBlk";
 
-const Work = ({ data }) => {
+const WorkWithUs = ({ data }) => {
 	return (
 		<>
 			<section id="work">
@@ -13,4 +13,4 @@ const Work = ({ data }) => {
 	);
 };
 
-export default Work;
+export default WorkWithUs;

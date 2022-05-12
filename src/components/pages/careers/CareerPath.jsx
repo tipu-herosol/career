@@ -7,7 +7,7 @@ const CareerPath = ({ data }) => {
 			<section id="career">
 				<div className="contain">
 					<div className="flex_row main_row row">
-						<div className="col-md-5">
+						<div className="col-lg-5">
 							<div className="flex_blk">
 								<div className="txt">
 									<h1 className="heading">

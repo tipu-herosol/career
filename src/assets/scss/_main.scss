@@ -4,6 +4,12 @@
 |----------------------------------------------------------------------
 */
 
+body {
+	@include mobile_sm {
+		font-size: 1.4rem;
+	}
+}
+
 #root {
 	padding-top: 8rem;
 	overflow: initial;
@@ -96,6 +102,10 @@ header {
 	height: 8rem;
 	background: $light;
 	@include trans;
+	@include ipad_sm {
+		-webkit-box-shadow: $shadow;
+		box-shadow: $shadow;
+	}
 	&.fix {
 		-webkit-box-shadow: $shadow;
 		box-shadow: $shadow;
@@ -683,6 +693,11 @@ footer {
 		@include list;
 		@include flex($flow: wrap);
 		margin: 0 -1.5rem;
+		@include ipad_sm {
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+		}
 		> li {
 			padding: 0 1.5rem;
 		}
@@ -690,8 +705,18 @@ footer {
 	.copyright {
 		@include flex(center, space-between);
 		margin-top: 1rem;
+		@include ipad_sm {
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			-ms-flex-flow: column;
+			flex-flow: column;
+			text-align: center;
+		}
 		p {
 			margin: 0;
+			@include ipad_sm {
+				margin-bottom: 1.5rem;
+			}
 		}
 	}
 }
@@ -745,11 +770,19 @@ footer {
 		min-height: 50rem;
 		padding: 8rem 0;
 		@include ipad_sm {
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			-ms-flex-flow: column;
+			flex-flow: column;
 			min-height: 40rem;
+			padding-top: 4rem;
 		}
 	}
 	.content {
 		max-width: 60rem;
+		@include ipad_sm {
+			max-width: none;
+		}
 		p {
 			margin-bottom: 3rem;
 		}
@@ -804,6 +837,10 @@ footer {
 	#video_blk {
 		width: 100%;
 		margin-left: 3rem;
+		@include ipad_sm {
+			margin-top: 4rem;
+			margin-left: 0;
+		}
 		.vid_blk {
 			padding-bottom: 100%;
 			-webkit-box-shadow: $shadow3;
@@ -829,6 +866,29 @@ form#srch_bar {
 		-webkit-box-shadow: $shadow3;
 		box-shadow: $shadow3;
 		border-radius: 1.2rem;
+		.flag_blk {
+			-ms-flex-item-align: center;
+			align-self: center;
+			line-height: 1;
+			color: $dark_gray;
+			padding: {
+				top: 0.6rem;
+				left: 1rem;
+				right: 1.5rem;
+				bottom: 0.6rem;
+			}
+			border-right: 0.2rem solid $light_gray;
+			white-space: nowrap;
+			> img {
+				width: 2.8rem;
+				min-width: 2.8rem;
+				height: 2rem;
+				margin-left: 1rem;
+				-o-object-fit: contain;
+				object-fit: contain;
+				overflow: hidden;
+			}
+		}
 		.form_blk {
 			@include flex(center);
 			-webkit-box-flex: 1;
@@ -847,6 +907,11 @@ form#srch_bar {
 				background: transparent;
 				border: 0;
 				padding: 0 2rem;
+			}
+		}
+		.site_btn {
+			@include mobile_sm {
+				display: none;
 			}
 		}
 	}
@@ -869,6 +934,9 @@ form#srch_bar {
 	@include list;
 	@include flex($justify: space-between, $flow: wrap);
 	margin: -1.5rem;
+	@include ipad {
+		@include slider;
+	}
 	> li {
 		display: block;
 		padding: 1.5rem;
@@ -879,6 +947,9 @@ form#srch_bar {
 			background: $light;
 			mix-blend-mode: darken;
 			@include trans;
+			@include ipad {
+				min-width: 12rem;
+			}
 			#brands & {
 				background: $light_white;
 			}
@@ -903,7 +974,7 @@ form#srch_bar {
 	}
 	.main_row {
 		> .col {
-			width: 25%;
+			// width: 25%;
 			&:nth-child(odd) {
 				.inner {
 					.num {
@@ -976,9 +1047,9 @@ form#srch_bar {
 			-webkit-box-align: center;
 			-ms-flex-align: center;
 			align-items: center;
-			> .col {
-				width: 50%;
-			}
+			// > .col {
+			// 	width: 50%;
+			// }
 		}
 	}
 }
@@ -993,6 +1064,14 @@ form#srch_bar {
 	.content {
 		max-width: 76rem;
 		margin: 0 auto 4rem;
+	}
+	.main_row {
+		@include ipad_sm {
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: reverse;
+			-ms-flex-flow: wrap-reverse;
+			flex-flow: wrap-reverse;
+		}
 	}
 	#slick-journey {
 		.slick-list {
@@ -1057,8 +1136,23 @@ form#srch_bar {
 		margin: 0 auto 4rem;
 	}
 	.main_row {
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		@include mobile_sm {
+			@include row($lr: 0.5rem);
+		}
 		> .col {
 			width: 25%;
+			@include ipad_sm {
+				width: 33.3334%;
+			}
+			@include mobile {
+				width: 50%;
+			}
+			@include mobile_sm {
+				padding: 0.5rem;
+			}
 		}
 	}
 }
@@ -1139,6 +1233,9 @@ form#srch_bar {
 		box-shadow: $shadow;
 		padding: 4rem;
 		border: 0.1rem solid rgba($black, 0.05);
+		@include mobile_md {
+			padding: 2.5rem;
+		}
 		.ico {
 			width: 10rem;
 			min-width: 10rem;
@@ -1199,10 +1296,16 @@ form#srch_bar {
 		}
 	}
 	& + #work {
+		@include ipad_sm {
+			padding: 0;
+		}
 		&:before {
 			content: "";
 			@include pos($t: -30rem, $z: -1);
 			background: rgba($color, 0.05);
+			@include ipad {
+				top: -30vw;
+			}
 		}
 	}
 }
@@ -1235,21 +1338,20 @@ form#srch_bar {
 		max-width: 64rem;
 		margin: 0 auto 4rem;
 	}
-	.main_row {
-		-webkit-box-pack: center;
-		-ms-flex-pack: center;
-		justify-content: center;
-		> .col {
-			width: 25%;
-		}
-	}
 	.vision_blk {
 		@include block;
+		@include mobile {
+			@include flex;
+		}
 		.ico {
 			width: 6rem;
 			min-width: 6rem;
 			height: 6rem;
 			margin-bottom: 2rem;
+			@include mobile {
+				margin: 0;
+				margin-right: 2rem;
+			}
 		}
 	}
 	& + #work {
@@ -1277,6 +1379,11 @@ form#srch_bar {
 		max-width: 80rem;
 		margin: 0 auto;
 	}
+	& + #contact {
+		@include ipad_sm {
+			padding-top: 0;
+		}
+	}
 }
 
 /*
@@ -1289,11 +1396,6 @@ form#srch_bar {
 	.content {
 		max-width: 64rem;
 		margin: 0 auto 4rem;
-	}
-	.main_row {
-		> .col {
-			width: 33.3334%;
-		}
 	}
 	.inner {
 		@include block;
@@ -1496,16 +1598,6 @@ form#srch_bar {
 */
 
 #contact {
-	.main_row {
-		> .col {
-			width: 50%;
-		}
-		@include ipad_sm {
-			> .col {
-				width: 100%;
-			}
-		}
-	}
 	.txt {
 		max-width: 50rem;
 	}
@@ -1519,6 +1611,9 @@ form#srch_bar {
 				-ms-flex-pack: center;
 				justify-content: center;
 			}
+		}
+		@include mobile_md {
+			padding: 2.5rem;
 		}
 	}
 	.info_list {
@@ -1571,6 +1666,9 @@ form#srch_bar {
 		background: -webkit-gradient(linear, left top, right top, from($color), to($color2));
 		background: linear-gradient(90deg, $color, $color2);
 		color: $light;
+		@include mobile_md {
+			padding: 4rem;
+		}
 		.site_btn {
 			&:not(:hover) {
 				background: rgba($light, 0.2);
@@ -1795,14 +1893,24 @@ form#srch_bar {
 */
 
 #career {
+	@include ipad {
+		padding-bottom: 0;
+	}
 	.flex_blk {
 		min-height: 40rem;
 		-webkit-box-align: center;
 		-ms-flex-align: center;
 		align-items: center;
+		@include ipad {
+			min-height: initial;
+			margin-bottom: 6rem;
+		}
 	}
 	.fig {
 		@include pos($l: 50%);
+		@include ipad {
+			position: static;
+		}
 		> img {
 			@include object;
 		}
@@ -1827,6 +1935,9 @@ form#srch_bar {
 	}
 	.sub_row {
 		grid-template-columns: repeat(4, 1fr);
+		@include mobile_md {
+			@include row($tb: 0.5rem, $lr: 0.5rem);
+		}
 		> .col {
 			grid-column: span 2;
 			&:nth-child(3n + 1) {
@@ -1856,6 +1967,21 @@ form#srch_bar {
 			margin: 0 auto;
 		}
 	}
+	.filter_wrapper_col {
+		@include ipad {
+			padding: 0;
+		}
+	}
+	#filter_btn_blk {
+		display: none;
+		@include pos($t: null, $pos: sticky, $z: 10);
+		background: $light;
+		padding: 1.5rem;
+		margin: 1.5rem -1.5rem -1.5rem;
+		@include ipad {
+			@include flex;
+		}
+	}
 }
 
 .job_blk {
@@ -1872,6 +1998,9 @@ form#srch_bar {
 			margin-right: 2rem;
 			border-radius: 0.7rem;
 			overflow: hidden;
+			@include mobile_sm {
+				display: none;
+			}
 		}
 		.title {
 			-webkit-box-flex: 1;

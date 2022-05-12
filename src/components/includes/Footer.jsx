@@ -101,7 +101,7 @@ function Footer() {
 			<footer>
 				<div className="contain">
 					<div className="flex_row main_row row">
-						<div className="col-md">
+						<div className="col-lg">
 							<div className="in_col">
 								<h4>Career Guide</h4>
 								<ul className="list info_list">
@@ -116,7 +116,7 @@ function Footer() {
 								</ul>
 							</div>
 						</div>
-						<div className="col-md">
+						<div className="col-lg">
 							<div className="in_col">
 								<h4>Quick Links</h4>
 								<ul className="list">
@@ -130,7 +130,7 @@ function Footer() {
 								</ul>
 							</div>
 						</div>
-						<div className="col-md">
+						<div className="col-lg">
 							<div className="in_col">
 								<h4>Resources</h4>
 								<ul className="list">
@@ -144,7 +144,7 @@ function Footer() {
 								</ul>
 							</div>
 						</div>
-						<div className="col-md-4">
+						<div className="col-xl-4">
 							<div className="in_col">
 								<Newsletter />
 							</div>

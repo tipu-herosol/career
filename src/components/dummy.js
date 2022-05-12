@@ -3,6 +3,8 @@ const Data = {
 		icon: "/images/icon-search-status.svg",
 		alt: "Search status icon",
 		btn: "Search Now",
+		flag: "/images/flag_uk.svg",
+		flag_alt: "UK",
 	},
 	home: {
 		banner: {

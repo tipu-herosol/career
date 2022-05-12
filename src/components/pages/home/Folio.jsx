@@ -7,7 +7,7 @@ function Folio({ data }) {
 		margin: 0,
 		loop: true,
 		dots: true,
-		nav: true,
+		nav: false,
 		smartSpeed: 1000,
 		responsiveClass: true,
 		responsive: {
@@ -19,6 +19,9 @@ function Folio({ data }) {
 			},
 			991: {
 				items: 3,
+			},
+			1200: {
+				nav: true,
 			},
 		},
 	};

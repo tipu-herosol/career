@@ -8,7 +8,7 @@ const WorkAnalys = ({ data }) => {
 			<section id="work_analys">
 				<div className="contain">
 					<div className="flex_row main_row row">
-						<div className="col-md-6">
+						<div className="col-lg-6">
 							<div className="txt">
 								<h6 className="tag">{data.tag}</h6>
 								<h2 className="heading">
@@ -23,7 +23,7 @@ const WorkAnalys = ({ data }) => {
 								</div>
 							</div>
 						</div>
-						<div className="col-md-6">
+						<div className="col-lg-6">
 							<div className="grid_row sub_row">
 								{data.block.map((val) => {
 									return (
