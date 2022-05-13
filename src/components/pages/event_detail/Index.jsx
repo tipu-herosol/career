@@ -5,7 +5,7 @@ import Detail from "./Detail";
 const EventDetail = () => {
 	return (
 		<>
-			<Detail data={Data.events} />
+			<Detail data={Data.event_detail} />
 		</>
 	);
 };

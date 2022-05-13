@@ -88,16 +88,16 @@ const data = {
 	],
 };
 
-const DashSidebar = () => {
+const DashSidebar = ({ active, toggle }) => {
 	return (
 		<>
-			<aside id="dash_sidebar">
+			<aside id="dash_sidebar" className={active ? "active" : ""}>
 				<div className="inside">
 					<ul className="list">
 						{data.list.map((val) => {
 							return (
 								<li key={val.id}>
-									<NavLink to={val.btn_link}>
+									<NavLink to={val.btn_link} onClick={toggle}>
 										<img src={val.src} alt={val.alt} />
 										{val.btn}
 									</NavLink>

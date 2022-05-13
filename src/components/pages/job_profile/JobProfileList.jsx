@@ -6,10 +6,10 @@ const JobProfileList = ({ data }) => {
 		<>
 			<section id="job_profile_list">
 				<div className="contain">
-					<div className="flex_row main_row">
+					<div className="flex_row main_row row">
 						{data.map((val) => {
 							return (
-								<div className="col" key={val.id}>
+								<div className="col col-lg-4 col-md-6" key={val.id}>
 									<JobProfileBlk {...val} />
 								</div>
 							);

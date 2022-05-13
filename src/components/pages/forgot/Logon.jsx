@@ -21,7 +21,7 @@ const Logon = ({ data }) => {
 			<section id="logon" style={{ backgroundImage: "url(" + data.sec_bg + ")" }}>
 				<div className="contain">
 					<div className="flex_row main_row row">
-						<div className="col col-md-4">
+						<div className="col col-lg-4">
 							<div className="content">
 								<h6 className="tag">{side.tag}</h6>
 								<h2 className="heading">{side.title}</h2>
@@ -32,7 +32,7 @@ const Logon = ({ data }) => {
 								</div>
 							</div>
 						</div>
-						<div className="col col-md-5">
+						<div className="col col-lg-5">
 							<div className="in_col">
 								<form action="" method="POST" onSubmit={inputHandle}>
 									<div className="log_blk">

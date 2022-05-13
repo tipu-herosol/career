@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import EventDetailBlk from "./EventDetailBlk";
 
-const Detail = () => {
+const Detail = ({ data }) => {
 	return (
 		<>
 			<section id="events" className="detail">
@@ -11,6 +12,7 @@ const Detail = () => {
 							<i className="chevron-left"></i> All Events
 						</Link>
 					</div>
+					<EventDetailBlk {...data.detail} reg_blk={data.reg_blk} />
 				</div>
 			</section>
 		</>

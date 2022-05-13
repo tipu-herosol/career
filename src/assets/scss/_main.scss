@@ -89,6 +89,9 @@ h6 {
 .contain-fluid {
 	max-width: none;
 	padding: 0 3rem;
+	@include ipad_sm {
+		padding: 0 1.5rem;
+	}
 }
 
 /*
@@ -111,6 +114,12 @@ header {
 		box-shadow: $shadow;
 	}
 	&.logged {
+		.toggle {
+			display: none;
+			@include ipad_sm {
+				@include flex;
+			}
+		}
 		& ~ section:nth-of-type(1) {
 			padding-top: 3rem;
 		}
@@ -241,6 +250,20 @@ header {
 			}
 		}
 	}
+	.nav_sub_blk {
+		width: 26rem;
+		min-width: 26rem;
+		font-size: 1.4rem;
+		.ico {
+			width: 6rem;
+			min-width: 6rem;
+			height: 6rem;
+			background: rgba($color, 0.2);
+			margin-bottom: 1.5rem;
+			padding: 1rem;
+			border-radius: 0.7rem;
+		}
+	}
 }
 
 .logo {
@@ -266,14 +289,6 @@ header {
 		height: 6rem;
 		margin-top: 1rem;
 		@include trans;
-		@include ipad_sm {
-			@include pos($z: 5);
-			float: none;
-			margin: auto;
-			-webkit-box-pack: center;
-			-ms-flex-pack: center;
-			justify-content: center;
-		}
 	}
 	footer & {
 		max-width: 8rem;
@@ -308,10 +323,14 @@ nav {
 	}
 	header.logged & {
 		margin-right: 0;
+		@include ipad_sm {
+			margin-right: 4.5rem;
+		}
 	}
 }
 
 #nav {
+	position: relative;
 	@include flex($justify: space-between);
 	-webkit-box-flex: 1;
 	-ms-flex: 1;
@@ -349,7 +368,7 @@ nav {
 			margin: 0;
 		}
 		> li {
-			position: relative;
+			// position: relative;
 			padding: 0 2rem;
 			@include ipad_sm {
 				width: 100%;
@@ -374,13 +393,10 @@ nav {
 				}
 			}
 			> .sub {
-				position: absolute;
-				top: 100%;
-				left: 2rem;
-				width: 20rem;
+				@include pos($t: calc(100% - 0.4rem), $b: null, $z: 2);
 				background: $light;
 				text-align: left;
-				padding: 1rem 0;
+				padding: 2rem;
 				margin-top: 1rem;
 				visibility: hidden;
 				opacity: 0;
@@ -388,8 +404,8 @@ nav {
 				border-radius: 0.6rem;
 				-webkit-transition: none;
 				transition: none;
-				-webkit-box-shadow: $shadow;
-				box-shadow: $shadow;
+				-webkit-box-shadow: $shadow2;
+				box-shadow: $shadow2;
 				pointer-events: none;
 				@include trans;
 				overflow: hidden;
@@ -477,7 +493,7 @@ nav {
 	width: 100%;
 	max-width: 40rem;
 	background: $light;
-	padding: 12rem 4.6rem 5rem;
+	padding: 12rem 0 5rem;
 	-webkit-box-shadow: $shadow3;
 	box-shadow: $shadow3;
 	@include trans;
@@ -490,6 +506,12 @@ nav {
 		background: rgba($black, 0.2);
 		-webkit-backdrop-filter: blur(0.5rem);
 		backdrop-filter: blur(0.5rem);
+	}
+	.inside {
+		height: 100%;
+		padding: 0 4rem;
+		overflow: hidden;
+		overflow-y: auto;
 	}
 	> * {
 		position: relative;
@@ -505,10 +527,12 @@ nav {
 		margin-bottom: 6rem;
 		> li {
 			display: block;
-			font-weight: 600;
-			line-height: 1.2;
 			&:not(:nth-last-child(1)) {
 				margin-bottom: 2rem;
+			}
+			> a {
+				font-weight: 600;
+				line-height: 1.2;
 			}
 		}
 	}
@@ -527,6 +551,25 @@ nav {
 			}
 		}
 	}
+	.nav_sub_blk {
+		margin-top: 1.5rem;
+		@include flex;
+		width: auto;
+		min-width: initial;
+		.ico {
+			width: 4rem;
+			min-width: 4rem;
+			height: 4rem;
+			margin: 0;
+			margin-right: 1.5rem;
+			padding: 0.7rem;
+		}
+		.txt {
+			h5 {
+				margin-bottom: 0.5rem;
+			}
+		}
+	}
 }
 
 #dash_sidebar {
@@ -537,11 +580,32 @@ nav {
 	-webkit-box-shadow: $shadow2;
 	box-shadow: $shadow2;
 	@include trans;
+	@include ipad {
+		width: 22rem;
+	}
+	@include ipad_sm {
+		display: none;
+	}
+	&:after {
+		@include pos($pos: fixed, $l: 22rem, $z: -1);
+		background: rgba($black, 0.2);
+		-webkit-backdrop-filter: blur(0.5rem);
+		backdrop-filter: blur(0.5rem);
+		@include ipad_sm {
+			content: "";
+		}
+	}
+	&.active {
+		display: block;
+	}
 	.inside {
 		height: 100%;
 		padding: 0 3rem;
 		overflow: hidden;
 		overflow-y: auto;
+		@include ipad_sm {
+			padding: 0 1.5rem;
+		}
 	}
 	.list {
 		@include list;
@@ -580,6 +644,12 @@ nav {
 	}
 	& ~ section {
 		padding-left: 30rem;
+		@include ipad {
+			padding-left: 22rem;
+		}
+		@include ipad_sm {
+			padding-left: 0;
+		}
 	}
 }
 
@@ -1687,11 +1757,17 @@ form#srch_bar {
 #logon {
 	background-size: 0;
 	padding: 0;
+	@include ipad_sm {
+		padding-bottom: 4rem;
+	}
 	&:before {
 		content: "";
 		@include pos($r: 50%, $z: 1);
 		background-image: inherit;
 		@include bg(cover);
+		@include ipad_sm {
+			display: none;
+		}
 	}
 	.contain {
 		position: relative;
@@ -1707,8 +1783,14 @@ form#srch_bar {
 		width: 100%;
 		min-height: calc(100vh - 8rem);
 		margin: 0;
+		@include ipad_sm {
+			min-height: initial;
+		}
 		> .col {
 			padding: 8rem 0;
+			@include ipad_sm {
+				padding: 0;
+			}
 		}
 	}
 	.log_blk {
@@ -1719,7 +1801,14 @@ form#srch_bar {
 		}
 	}
 	.content {
+		width: auto;
+		min-width: 100%;
 		color: $light;
+		@include ipad_sm {
+			background: $black;
+			padding: 3rem;
+			margin: 0 -1.5rem 4rem;
+		}
 		.account {
 			a {
 				color: $color;
@@ -1743,6 +1832,9 @@ form#srch_bar {
 }
 
 #register {
+	@include ipad_sm {
+		padding-top: 4rem;
+	}
 	.contain {
 		max-width: 80rem;
 	}
@@ -1755,6 +1847,9 @@ form#srch_bar {
 			color: rgba($black, 0.4);
 			&:not(:nth-last-child(1)) {
 				padding-right: 10rem;
+				@include mobile_md {
+					padding-right: 7rem;
+				}
 				&:after {
 					content: "";
 					position: absolute;
@@ -1776,6 +1871,9 @@ form#srch_bar {
 				margin-bottom: 0.4rem;
 				border: 0.2rem dashed transparent;
 				border-radius: 0.6rem;
+				@include mobile_md {
+					margin-bottom: 0;
+				}
 			}
 			&:nth-child(1) {
 				color: $green;
@@ -1799,6 +1897,9 @@ form#srch_bar {
 			}
 			strong {
 				font-size: 90%;
+				@include mobile_md {
+					display: none;
+				}
 			}
 		}
 	}
@@ -1830,6 +1931,9 @@ form#srch_bar {
 			color: rgba($black, 0.4);
 			&:not(:nth-last-child(1)) {
 				padding-right: 10rem;
+				@include mobile_md {
+					padding-right: 4rem;
+				}
 				&:after {
 					content: "";
 					position: absolute;
@@ -1851,6 +1955,9 @@ form#srch_bar {
 				margin-bottom: 0.4rem;
 				border: 0.2rem dashed transparent;
 				border-radius: 0.6rem;
+				@include mobile_md {
+					margin-bottom: 0;
+				}
 			}
 			&:nth-child(1) {
 				color: $green;
@@ -1874,6 +1981,9 @@ form#srch_bar {
 			}
 			strong {
 				font-size: 90%;
+				@include mobile_md {
+					display: none;
+				}
 			}
 		}
 	}
@@ -2252,11 +2362,6 @@ form#srch_bar {
 
 #job_profile_list {
 	padding-top: 0;
-	.main_row {
-		> .col {
-			width: 33.3334%;
-		}
-	}
 	& + #categories {
 		background: transparent;
 		padding-top: 0;
@@ -2297,6 +2402,11 @@ form#srch_bar {
 		padding: 2.5rem;
 		border: 0.1rem solid $light_gray;
 		border-radius: 1rem;
+		@include mobile_md {
+			padding: 0;
+			border: 0;
+			border-radius: 0;
+		}
 	}
 	@at-root {
 		#calendar {
@@ -2406,7 +2516,7 @@ form#srch_bar {
 						color: $light;
 					}
 					&--keyboard-selected {
-						background: rgba($color2, 0.5);
+						background: rgba($color2, 0.5) !important;
 						color: $light;
 					}
 					&--outside-month {
@@ -2433,6 +2543,13 @@ form#srch_bar {
 			padding: 1rem 2rem;
 			border: 0.2rem solid $light_gray;
 			border-radius: 0.7rem;
+			@include ipad_sm {
+				-ms-flex-flow: wrap;
+				flex-flow: wrap;
+			}
+			@include mobile_md {
+				padding: 0 1.5rem;
+			}
 			.form_blk {
 				@include flex(center);
 				-webkit-box-flex: 1;
@@ -2441,12 +2558,21 @@ form#srch_bar {
 				margin: 0;
 				margin-right: 2rem;
 				border-right: 0.2rem solid $light_gray;
+				@include mobile_md {
+					margin: 0;
+					border: 0;
+				}
 				.ico {
 					width: 2rem;
 					min-width: 2rem;
 					height: 2rem;
 					-webkit-filter: brightness(0) invert(0.8);
 					filter: brightness(0) invert(0.8);
+				}
+			}
+			.site_btn {
+				@include mobile_md {
+					width: 100%;
 				}
 			}
 			.input {
@@ -2474,6 +2600,7 @@ form#srch_bar {
 		> li {
 			padding: 0.4rem 0.5rem;
 			span {
+				display: inline-block;
 				color: $dark_gray;
 				padding: 0.6rem 1.5rem;
 				border: 0.2rem solid $light_gray;
@@ -2496,6 +2623,43 @@ form#srch_bar {
 			}
 		}
 	}
+	.event_detail {
+		.btm {
+			@include flex($flow: wrap);
+			gap: 0 3rem;
+			.time {
+				color: rgba($black, 0.7);
+			}
+			.type {
+				@include flex(center);
+				line-height: 1;
+				> img {
+					width: 1.6rem;
+					min-width: 1.6rem;
+					height: 1.6rem;
+					margin-right: 0.8rem;
+				}
+			}
+		}
+		.fig {
+			margin: 2rem 0 4rem;
+		}
+	}
+	.reg_blk {
+		@include block;
+		max-width: 50rem;
+		.data {
+			margin: 2rem 0;
+			padding: 2rem 0;
+			border: {
+				top: 0.1rem solid $light_gray;
+				bottom: 0.1rem solid $light_gray;
+			}
+			.price {
+				white-space: nowrap;
+			}
+		}
+	}
 }
 
 .event_blk {
@@ -2504,6 +2668,14 @@ form#srch_bar {
 	border: 0.2rem solid $light_gray;
 	-webkit-box-shadow: none;
 	box-shadow: none;
+	@include mobile {
+		-ms-flex-flow: wrap;
+		flex-flow: wrap;
+		padding: 2rem;
+	}
+	@include mobile_sm {
+		padding: 1.5rem;
+	}
 	&:not(:nth-last-child(1)) {
 		margin-bottom: 2rem;
 	}
@@ -2521,12 +2693,29 @@ form#srch_bar {
 		line-height: 1;
 		margin-right: 2rem;
 		border-radius: 0.7rem;
+		@include mobile {
+			width: 6.6rem;
+			min-width: 6.6rem;
+			height: 6.6rem;
+			font-size: 2rem;
+		}
+		@include mobile_sm {
+			width: 6rem;
+			min-width: 6rem;
+			height: 6rem;
+			margin-right: 1rem;
+		}
 		> small {
 			font-size: 1.2rem;
 			font-weight: 400;
 		}
 	}
 	.txt {
+		@include mobile {
+			-webkit-box-flex: 1;
+			-ms-flex: 1;
+			flex: 1;
+		}
 		.time {
 			color: $color;
 		}
@@ -2547,6 +2736,13 @@ form#srch_bar {
 		width: 30%;
 		min-width: 30%;
 		margin-left: 2rem;
+		@include mobile {
+			-webkit-box-ordinal-group: 0;
+			-ms-flex-order: -1;
+			order: -1;
+			width: 100%;
+			margin: 0 0 2rem;
+		}
 		figure {
 			@include img($pb: 60%);
 			margin: 0;
@@ -2574,6 +2770,13 @@ form#srch_bar {
 		font-weight: 600;
 		margin-right: 2rem;
 		border-radius: 0.7rem;
+		@include ipad_sm {
+			width: 6rem;
+			min-width: 6rem;
+			height: 6rem;
+			font-size: 1.8rem;
+			margin-right: 1.5rem;
+		}
 	}
 	.txt {
 		h4 {
@@ -2604,8 +2807,17 @@ form#srch_bar {
 #dash,
 #stats {
 	.card_row {
+		@include ipad {
+			@include row($tb: 0.5rem, $lr: 0.5rem);
+		}
 		> .col {
 			width: 25%;
+			@include ipad {
+				width: 33.3334%;
+			}
+			@include mobile {
+				width: 50%;
+			}
 		}
 	}
 	@at-root {
@@ -2617,8 +2829,13 @@ form#srch_bar {
 				font-weight: 700;
 				line-height: 1;
 				margin-bottom: 1rem;
+				@include mobile {
+					font-size: 3.6rem;
+				}
 			}
 			strong {
+				display: block;
+				line-height: 1;
 				text-transform: capitalize;
 			}
 		}
@@ -2641,13 +2858,15 @@ form#srch_bar {
 	.top_bar {
 		@include block;
 		@include flex(center, space-between);
+		@include mobile {
+			-ms-flex-flow: wrap;
+			flex-flow: wrap;
+		}
 		.txt {
 			max-width: 40rem;
-		}
-	}
-	.main_row {
-		> .col {
-			width: 33.3334%;
+			@include mobile {
+				margin-bottom: 1.5rem;
+			}
 		}
 	}
 	@at-root {
@@ -2665,6 +2884,9 @@ form#srch_bar {
 				line-height: 1;
 				margin: 2.5rem -2.5rem;
 				padding: 1.5rem 2.5rem;
+				@include mobile_md {
+					font-size: 5rem;
+				}
 				> span {
 					background: linear-gradient(36deg, $color, $color2);
 					-webkit-background-clip: text;
@@ -2721,12 +2943,21 @@ form#srch_bar {
 |----------------------------------------------------------------------
 */
 
+#settings {
+	.top_head {
+		-ms-flex-flow: nowrap;
+		flex-flow: nowrap;
+	}
+}
+
 .dp_blk {
 	@include flex(flex-end);
 	margin-bottom: 3rem;
 	@include mobile {
-		-ms-flex-flow: wrap;
-		flex-flow: wrap;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-flow: column;
+		flex-flow: column;
 		-webkit-box-pack: center;
 		-ms-flex-pack: center;
 		justify-content: center;
@@ -2756,7 +2987,9 @@ form#srch_bar {
 	}
 	.txt {
 		@include mobile_md {
+			max-width: 24rem;
 			text-align: center;
+			margin: 0 auto;
 			.btn_blk {
 				-webkit-box-pack: center;
 				-ms-flex-pack: center;

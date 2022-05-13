@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import Sidebar from "./Sidebar";
+import DashSidebar from "./DashSidebar";
 
 function Header({ logged }) {
 	const [scroll, setScroll] = useState(false);
@@ -30,13 +31,19 @@ function Header({ logged }) {
 					{toggle ? <Sidebar active={toggle} toggle={ToggleActive} className={!toggle ? "" : "active"} /> : ""}
 				</header>
 			) : (
-				<header className="fix logged">
-					<div className="contain-fluid">
-						<Logo />
-						<Navigation active={toggle} toggle={ToggleActive} logged={true} />
-						<div className="clearfix"></div>
-					</div>
-				</header>
+				<>
+					<header className="fix logged">
+						<div className="contain-fluid">
+							<Logo />
+							<button type="button" className={!toggle ? "toggle" : "toggle active"} onClick={() => ToggleActive(!toggle)}>
+								<span></span>
+							</button>
+							<Navigation logged={true} />
+							<div className="clearfix"></div>
+						</div>
+					</header>
+					<DashSidebar active={toggle} toggle={ToggleActive} />
+				</>
 			)}
 		</>
 	);

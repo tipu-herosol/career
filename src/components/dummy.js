@@ -377,7 +377,7 @@ const Data = {
 				},
 				{
 					id: 4,
-					src: "/images/icon-monitor-mobbile.svg",
+					src: "/images/icon-monitor-mobile.svg",
 					alt: "Monitor Icon",
 					title: "Informed decisions",
 					para: "Knowledge is power. We bring relevant information to help all stakeholders with efficient decision-making.",
@@ -482,7 +482,7 @@ const Data = {
 				},
 				{
 					id: 4,
-					src: "/images/icon-monitor-mobbile.svg",
+					src: "/images/icon-monitor-mobile.svg",
 					alt: "Monitor Icon",
 					title: "providing the best services for students",
 					para: "Knowledge is power. We bring relevant information to help all stakeholders with efficient decision-making.",
@@ -633,7 +633,7 @@ const Data = {
 				},
 				{
 					id: 4,
-					src: "/images/icon-monitor-mobbile.svg",
+					src: "/images/icon-monitor-mobile.svg",
 					alt: "Monitor Icon",
 					title: "providing the best services for students",
 					para: "Knowledge is power. We bring relevant information to help all stakeholders with efficient decision-making.",
@@ -1380,7 +1380,24 @@ const Data = {
 		],
 	},
 	event_detail: {
-		heading: "event_detail",
+		heading: "Event Detail",
+		detail: {
+			title: "Virtual Event With Ticket Sales",
+			time: "April 29 @ 5:30 am - 7:30 am",
+			type: "Virtual Event",
+			price: "$15.00",
+			src: "/images/image 27.jpg",
+			alt: "Event Photo",
+		},
+		reg_blk: {
+			title: "Register Now",
+			subtitle: "lorem ipsum sit amet",
+			para: "You will not be charged while using the demo",
+			price: "$15.00",
+			price_limit: "Unlimited",
+			btn: "Register",
+			btn_link: "/register",
+		},
 	},
 	interview: {
 		heading: "Video Interview",

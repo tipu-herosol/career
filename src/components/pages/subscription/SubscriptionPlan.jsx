@@ -12,10 +12,10 @@ const SubscriptionPlan = ({ data }) => {
 					<div className="br"></div>
 					<div className="br"></div>
 					<h4 className="heading">{data.heading_02}</h4>
-					<div className="flex_row main_row">
+					<div className="flex_row main_row row">
 						{data.block.map((val) => {
 							return (
-								<div className="col" key={val.id}>
+								<div className="col col-xl-4" key={val.id}>
 									<PricePlanBlk {...val} />
 								</div>
 							);

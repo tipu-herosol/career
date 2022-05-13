@@ -56,7 +56,7 @@ const JobBlk = ({ admin, ...val }) => {
 				{admin ? (
 					<div className="btm">
 						<div className="form_row row">
-							<div className="col-md">
+							<div className="col-xl col-lg-4 col-md-6">
 								<h5>Online Test</h5>
 								<div className="form_blk">
 									<select name="" id="" className="input">
@@ -68,7 +68,7 @@ const JobBlk = ({ admin, ...val }) => {
 									</select>
 								</div>
 							</div>
-							<div className="col-md">
+							<div className="col-xl col-lg-4 col-md-6">
 								<h5>Interview</h5>
 								<div className="form_blk">
 									<select name="" id="" className="input">
@@ -80,7 +80,7 @@ const JobBlk = ({ admin, ...val }) => {
 									</select>
 								</div>
 							</div>
-							<div className="col-md">
+							<div className="col-xl col-lg-4 col-md-6">
 								<h5>2nd round interview</h5>
 								<div className="form_blk">
 									<select name="" id="" className="input">
@@ -92,7 +92,7 @@ const JobBlk = ({ admin, ...val }) => {
 									</select>
 								</div>
 							</div>
-							<div className="col-md">
+							<div className="col-xl col-lg-4 col-md-6">
 								<h5>final round interview</h5>
 								<div className="form_blk">
 									<select name="" id="" className="input">
@@ -104,7 +104,7 @@ const JobBlk = ({ admin, ...val }) => {
 									</select>
 								</div>
 							</div>
-							<div className="col-md">
+							<div className="col-xl col-lg-4 col-md-6">
 								<h5>offer</h5>
 								<div className="form_blk">
 									<select name="" id="" className="input">

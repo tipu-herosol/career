@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import RegisterBlk from "./RegisterBlk";
 
-const EventDetailBlk = ({ title, time, type, price, src, alt }) => {
+const EventDetailBlk = ({ title, time, type, price, src, alt, reg_blk }) => {
 	return (
 		<>
 			<div className="event_detail">
@@ -11,7 +13,7 @@ const EventDetailBlk = ({ title, time, type, price, src, alt }) => {
 						<img src={process.env.PUBLIC_URL + "/images/icon-video2.svg"} alt="" />
 						{type}
 					</div>
-					<div className="price">{price}</div>
+					<div className="price color">{price}</div>
 				</div>
 				<div className="fig">
 					<img src={src} alt={alt} />
@@ -27,6 +29,15 @@ const EventDetailBlk = ({ title, time, type, price, src, alt }) => {
 					<p>Using shortcodes from Event Tickets Plus, you’re able to display protected content, that only attendees who have registered for the event and logged into the site can see. Everyone else will see a notice to register to access the livestream.</p>
 					<p>???? Please login and register for the event to access the livestream.</p>
 				</div>
+				<div className="btn_blk mt-5 mb-5">
+					<Link to="?" className="site_btn text">
+						<i className="plus"></i> Add to Google Calendar
+					</Link>
+					<Link to="?" className="site_btn text">
+						<i className="plus"></i> Add to iCalendar
+					</Link>
+				</div>
+				<RegisterBlk {...reg_blk} />
 			</div>
 		</>
 	);

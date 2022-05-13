@@ -9,7 +9,7 @@ const TopBar = ({ title, para, btn_01, btn_link_01, btn_02, btn_link_02 }) => {
 					<h3 className="color">{title}</h3>
 					<p>{para}</p>
 				</div>
-				<div className="btn_blk">
+				<div className="btn_blk flex-md-nowrap ms-md-5">
 					<Link to={btn_link_01} className="site_btn long">
 						{btn_01}
 					</Link>

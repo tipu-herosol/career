@@ -25,7 +25,7 @@ const Appointment = ({ data }) => {
 											<DatePicker selected={new Date()} inline={true} useWeekdaysShort={true} calendarStartDay={1} />
 										</div>
 									</div>
-									<div className="col col-sm-4">
+									<div className="col col-md-4">
 										<div className="in_col">
 											<p>Wednesday, May 11</p>
 											<div className="btn_blk">

@@ -26,7 +26,6 @@ import Disclaim from "./components/pages/disclaimer/Index";
 import Terms from "./components/pages/terms/Index";
 
 // Account & Popup
-import DashSidebar from "./components/includes/DashSidebar";
 import Dashboard from "./components/pages/dashboard/Index";
 import Statistics from "./components/pages/statistics/Index";
 import Profile from "./components/pages/profile/Index";
@@ -56,7 +55,6 @@ function App() {
 	const PageLogLayout = () => (
 		<>
 			<Header logged={true} />
-			<DashSidebar />
 			<Outlet />
 		</>
 	);
